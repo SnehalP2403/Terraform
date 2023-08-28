@@ -2,6 +2,7 @@ resource "aws_vpc" "this" {
   cidr_block = "10.100.0.0/16"
   tags = {
     Name = "upgrad-vpc"
+    project = var.project
   }
 }
 
@@ -11,6 +12,7 @@ resource "aws_subnet" "public1" {
 
   tags = {
     Name = "public-subnet-1"
+    project = var.project
   }
 }
 resource "aws_subnet" "public2" {
@@ -19,6 +21,7 @@ resource "aws_subnet" "public2" {
 
   tags = {
     Name = "public-subnet-2"
+    project = var.project
   }
 }
 resource "aws_subnet" "private1" {
@@ -27,6 +30,7 @@ resource "aws_subnet" "private1" {
 
   tags = {
     Name = "private-subnet-1"
+    project = var.project
   }
 }
 resource "aws_subnet" "private2" {
@@ -35,6 +39,7 @@ resource "aws_subnet" "private2" {
 
   tags = {
     Name = "private-subnet-2"
+    project = var.project
   }
 }
 resource "aws_internet_gateway" "igw" {
@@ -42,6 +47,7 @@ resource "aws_internet_gateway" "igw" {
 
   tags = {
     Name = "upgrad-igw"
+    project = var.project
   }
 }
 resource "aws_eip" "eip" {
@@ -54,6 +60,7 @@ resource "aws_nat_gateway" "nat" {
 
   tags = {
     Name = "upgrad-nat"
+    project = var.project
   }
 }
 resource "aws_route_table" "public" {
@@ -66,6 +73,7 @@ resource "aws_route_table" "public" {
 
   tags = {
     Name = "public-rt"
+    project = var.project
   }
 }
 resource "aws_route_table" "private" {
@@ -78,6 +86,7 @@ resource "aws_route_table" "private" {
 
   tags = {
     Name = "public-rt"
+    project = var.project
   }
 }
 resource "aws_route_table_association" "public1" {
